@@ -2,7 +2,7 @@
 
 A small tool to sync DNS records from your Tailscale tailnet to Route53.
 
-Will add records in the format "<TAILSCALE HOSTNAME>.<HOSTED ZONE NAME>"
+Will add records in the format `<TAILSCALE HOSTNAME>.<HOSTED ZONE NAME>`
 
 ## Usage
 
@@ -14,3 +14,9 @@ export TAILSCALE_DNS_TAILNET=<your_tailnet_name>
 export TAILSCALE_DNS_ROUTE53_DOMAIN=<your_hosted_zone_name>
 tailscale-dns-sync
 ```
+
+## TODO
+
+- [ ] Redesign to allow for easier addition of other cloud providers
+- [ ] Flag for disabling ipv6 records
+- [ ] Split up domain name to sync from hosted zone name
