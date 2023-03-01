@@ -6,6 +6,8 @@ Will add records in the format `<TAILSCALE HOSTNAME>.<HOSTED ZONE NAME>`
 
 ## Usage
 
+This assumes your environment has the requisite AWS permissions set up to modify Route5 hosted zones.
+
 After `cargo install`ing locally, run:
 
 ```sh
