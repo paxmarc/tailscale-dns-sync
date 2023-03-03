@@ -1,6 +1,6 @@
 # tailscale-dns-sync
 
-A small tool to sync DNS records from your Tailscale tailnet to Route53.
+A small tool to sync DNS records from your Tailscale tailnet to Route53, if MagicDNS doesn't take your fancy.
 
 Will add records in the format `<device_hostname>.<target_domain>`
 
