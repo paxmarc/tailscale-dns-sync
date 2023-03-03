@@ -2,7 +2,7 @@
 
 A small tool to sync DNS records from your Tailscale tailnet to Route53.
 
-Will add records in the format `<TAILSCALE HOSTNAME>.<target_domain>
+Will add records in the format `<device_hostname>.<target_domain>`
 
 ## Usage
 
