@@ -12,8 +12,8 @@ pub struct Route53Sync {
 }
 
 impl Route53Sync {
-    pub fn new(hosted_zone_id: String, domain: String) -> Route53Sync {
-        Route53Sync {
+    pub fn new(hosted_zone_id: String, domain: String) -> Self {
+        Self {
             hosted_zone_id,
             domain,
         }
@@ -52,7 +52,7 @@ impl DNSSync for Route53Sync {
         let changes = records
             .iter()
             .map(|device| self.map_device_record_to_change(device))
-            .collect::<Vec<Change>>();
+            .collect();
 
         let change_batch = ChangeBatch::builder().set_changes(Some(changes)).build();
 

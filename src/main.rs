@@ -16,11 +16,11 @@ async fn main() -> Result<()> {
         .build()
         .unwrap();
 
-    // Setup tailscale client
     let ts_api_key = settings.get_string("api_key")?;
     let ts_api_tailnet = settings.get_string("tailnet")?;
     let r53_domain = settings.get_string("route53_domain")?;
     let r53_hosted_zone_id = settings.get_string("route53_hosted_zone_id")?;
+
     let devices = Tailscale::new(ts_api_key, ts_api_tailnet)
         .list_devices()
         .await?;
@@ -37,7 +37,7 @@ async fn main() -> Result<()> {
         "Synced {} DNS records for {} devices to domain {}",
         &device_records.len(),
         &devices.len(),
-        r53_domain.clone()
+        r53_domain.to_owned()
     );
 
     Ok(())
@@ -55,7 +55,7 @@ fn flatten_device_addresses(device: &Device) -> Vec<DeviceRecord> {
         .iter()
         .map(|address| DeviceRecord {
             ip: address.parse().unwrap(),
-            name: String::from(&device.hostname),
+            name: device.hostname.to_owned(),
         })
         .collect()
 }
